@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>Match Verso</title>
+</head>
+<body>
+    <header>                     <!--Navbar-->
+            <nav class="navbar">
+                  <ul>
+                        <h1 class="logo-navbar">Match-<span id="verse1">Verse</span></h1>
+                        <li><a href="">Produtos</a></li>
+                        <li><a href="">Saiba Mais</a></li>
+                        <li><a href="">Segurança</a></li>
+                        <li><a href="">Suporte</a></li>
+                        <li><a href="">Download</a></li>
+                        <label for="show" class="show-btn" type="button">Entre</label>
+                  </ul>
+             </nav>
+    </header>                            <!--Home-->
+    <div data-aos="fade-right" data-aos-duration="3000">
+            <section class="sessao1">
+                        <h1>Dê um Match. Converse. <br> E se Encontre no <span id="verse">Match-<span id="verse1">Verse</span></span></h1>
+            </section>
+                        <button class="btn1" type="button">Dê um Match</button>
+    </div>
+
+                                             <!--Login pop-up-->
+                        <div class="center">
+                            <input type="checkbox" id="show">
+                            <div class="container">
+                                <label for="show" class="close-btn fas fa-times"></label>
+                                <div class="text">Faça o seu Login</div>
+                                <form action="#">
+                                    <div class="data">
+                                        <label>Email</label>
+                                        <input type="text" required placeholder="Digite seu Email">
+                                    </div>
+                                    <div class="data">
+                                        <label>Senha</label>
+                                        <input type="password" required placeholder="Digite sua Senha">
+                                    </div>
+                                    <div class="esqueceu"><a href="#">Esqueceu a senha?</a></div>
+                                    <div class="btn">
+                                    <div class="inner"></div>
+                                    <button type="submit">Entrar</button>
+                                    </div>
+                                    <div class="signup-link">Não possui cadastro? <a href="#">Cadastre-se</a></div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+                        <script>
+                            AOS.init();
+                          </script>
+</body>
+</html>
