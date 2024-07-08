@@ -14,6 +14,12 @@ body{
     background-size: cover;
     background-blend-mode: darken;
 }
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+}
 .navbar a,li,ul{
     text-decoration: none;
     display: flex;
@@ -64,11 +70,13 @@ body{
    color: white;
    font-family: 'Roboto', sans-serif;
    font-weight: bolder;
+   text-align: center;
    display: flex;
    align-items: center;
    justify-content: center;
-   height: 300px;
-   margin-top: 100px;
+   flex-direction: column;
+   gap: 20px;
+   height: 100vh;
 }
 .btn1{
     color: white;
@@ -81,7 +89,7 @@ body{
     height: 90px;
     width: 250px;
     font-size: 30px;
-    border-radius: 30px;
+    border-radius: 12px;
 }
 .btn1:hover{
     background-color: rgb(222, 23, 56);
@@ -232,7 +240,7 @@ form .signup-link a:hover{
 #show2:checked ~ .container2{
     display: block;
 }
-@media (max-width: 667px){
+@media (max-width: 767px){
     body{
         width: 100%;
         background-position: center;

@@ -4,21 +4,19 @@ include("conexao.php");
 $response = array();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nome = $_POST['nome'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-    // Criptografar a senha
-    $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+    $sql = "SELECT * FROM cadastro WHERE email = '$email'";
+    $result = mysqli_query($conexao, $sql);
+    $user = mysqli_fetch_assoc($result);
 
-    $sql = "INSERT INTO cadastro (nome, email, senha) VALUES ('$nome', '$email', '$senha_hash')";
-
-    if (mysqli_query($conexao, $sql)) {
+    if ($user && password_verify($senha, $user['senha'])) {
         $response['status'] = 'success';
-        $response['message'] = 'Usuário cadastrado com sucesso';
+        $response['message'] = 'Login bem-sucedido';
     } else {
         $response['status'] = 'error';
-        $response['message'] = 'Erro: ' . mysqli_error($conexao);
+        $response['message'] = 'Email ou senha incorretos';
     }
 
     mysqli_close($conexao);
