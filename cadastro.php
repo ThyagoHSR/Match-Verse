@@ -11,21 +11,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Criptografar a senha
     $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO cadastro (nome, email, senha) VALUES ('$nome', '$email', '$senha_hash')";
+    $sql = "INSERT INTO cadastro (nome, email, senha) VALUES (?, ?, ?)";
+    $stmt = $conexao->prepare($sql);
+    $stmt->bind_param('sss', $nome, $email, $senha_hash);
 
-    if (mysqli_query($conexao, $sql)) {
+    if ($stmt->execute()) {
         $response['status'] = 'success';
         $response['message'] = 'Usuário cadastrado com sucesso';
     } else {
         $response['status'] = 'error';
-        $response['message'] = 'Erro: ' . mysqli_error($conexao);
+        $response['message'] = 'Erro: ' . $stmt->error;
     }
 
-    mysqli_close($conexao);
+    $stmt->close();
+    $conexao->close();
 } else {
     $response['status'] = 'error';
     $response['message'] = 'Método de solicitação inválido';
 }
 
+header('Content-Type: application/json');
 echo json_encode($response);
 ?>
